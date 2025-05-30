@@ -21,7 +21,7 @@ services:
     image: wordpress:v1
     container_name: wordpress_container
     env_file:
-      - /home/kadam/.env
+      - ../.env
     volumes:
       - wordpress_data:/var/www/html
     networks:
@@ -33,7 +33,7 @@ services:
     image: mariadb:v1
     container_name: mariadb_container
     env_file:
-      - /home/kadam/.env
+      - ../.env
     volumes:
       - mariadb_data:/var/lib/mysql
     networks:
@@ -45,13 +45,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/kadam/data/wordpress_data
+      device: ../data/wordpress_data
 
   mariadb_data:
     driver_opts:
       type: none
       o: bind
-      device: /home/kadam/data/mariadb_data
+      device: ../data/mariadb_data
 
 networks:
   nginx_network:
